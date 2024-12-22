@@ -1,4 +1,13 @@
 import sqlite3
+import random
+import string
+
+def generate_random_name(length=8):
+    letters_and_digits = string.ascii_letters + string.digits
+    return ''.join(random.choice(letters_and_digits) for i in range(length))
+
+def generate_random_port(min_port=1000, max_port=8000):
+    return random.randint(min_port, max_port)
 
 def transfer_data():
     destination_db = input("Enter the destination database path (e.g., /etc/x-ui/x-ui.db): ")
@@ -15,8 +24,11 @@ def transfer_data():
     destination_conn = sqlite3.connect(destination_db)
     destination_cursor = destination_conn.cursor()
 
-    inbound_name = input("Enter the inbound name (e.g., 'inbound-1'): ")
-    inbound_port = input("Enter the inbound port (e.g., '1080'): ")
+    inbound_name = generate_random_name()
+    inbound_port = generate_random_port()
+
+    print(f"Generated Inbound Name: {inbound_name}")
+    print(f"Generated Inbound Port: {inbound_port}")
 
     destination_cursor.execute(f"INSERT INTO inbounds (name, port) VALUES (?, ?)", (inbound_name, inbound_port))
     destination_conn.commit()
