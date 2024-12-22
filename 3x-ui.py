@@ -30,8 +30,12 @@ def transfer_data():
     print(f"Generated Inbound Name: {inbound_name}")
     print(f"Generated Inbound Port: {inbound_port}")
 
-    destination_cursor.execute(f"INSERT INTO inbounds (listen, port) VALUES (?, ?)", (inbound_name, inbound_port))
-    destination_conn.commit()
+    try:
+        destination_cursor.execute(f"INSERT INTO inbounds (listen, port) VALUES (?, ?)", (inbound_name, inbound_port))
+        destination_conn.commit()
+        print(f"Successfully inserted inbound with name: {inbound_name} and port: {inbound_port}")
+    except sqlite3.Error as e:
+        print(f"Error inserting into inbounds: {e}")
 
     for db in backup_dbs:
         source_conn = sqlite3.connect(db)
