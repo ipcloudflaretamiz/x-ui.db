@@ -30,7 +30,7 @@ def transfer_data():
     print(f"Generated Inbound Name: {inbound_name}")
     print(f"Generated Inbound Port: {inbound_port}")
 
-    destination_cursor.execute(f"INSERT INTO inbounds (name, port) VALUES (?, ?)", (inbound_name, inbound_port))
+    destination_cursor.execute(f"INSERT INTO inbounds (listen, port) VALUES (?, ?)", (inbound_name, inbound_port))
     destination_conn.commit()
 
     for db in backup_dbs:
