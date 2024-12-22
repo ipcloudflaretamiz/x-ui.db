@@ -5,6 +5,6 @@
 ```
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/ipcloudflaretamiz/x-ui.db/raw/main/images/01-overview-dark.png">
-  <img alt="3x-ui Overview" src="https://github.com/ipcloudflaretamiz/x-ui.db/raw/main/images/01-overview-light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/ipcloudflaretamiz/x-ui.db/raw/main/images/amozsh.png">
+  <img alt="3x-ui Overview" src="https://github.com/ipcloudflaretamiz/x-ui.db/raw/main/images/amozsh.png">
 </picture>
