@@ -37,9 +37,3 @@
   <img alt="3x-ui Overview" src="https://github.com/ipcloudflaretamiz/x-ui.db/blob/main/5.png">
 </picture>
 
-
-##### سپس انتخاب میکنید نام فایل ها رو اطلاعات از باقی بکاپ به بکاپ اصلی پنل بره مثلا برای من x-ui2.db همینو وارد میکنم ولی برای شما اگر چند مورد هست مثلا 2 یا 3 باید به صورت x-ui3.db,x-ui2.db وارد کنید 
-
-<picture>
-  <img alt="3x-ui Overview" src="https://github.com/ipcloudflaretamiz/x-ui.db/blob/main/4.png">
-</picture>
