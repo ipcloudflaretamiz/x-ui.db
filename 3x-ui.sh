@@ -1,50 +1,11 @@
-import sqlite3
+#!/bin/bash
 
-def transfer_data():
-    destination_db = input("Enter the destination database path (e.g., /etc/x-ui/x-ui.db): ")
-    num_backups = int(input("Enter the number of backup databases: "))
-    
-    backup_dbs_input = input("Enter the names of backup databases (comma separated, e.g., x-ui1.db,x-ui2.db): ")
-    backup_dbs = backup_dbs_input.split(',')
-    
-    base_path = '/etc/x-ui/'
-    
-    for i in range(len(backup_dbs)):
-        backup_dbs[i] = base_path + backup_dbs[i]
+echo "Installing Python3 and SQLite..."
+sudo apt-get update
+sudo apt-get install -y python3 python3-pip sqlite3
 
-    destination_conn = sqlite3.connect(destination_db)
-    destination_cursor = destination_conn.cursor()
+echo "Downloading the Python script..."
+curl -L https://raw.githubusercontent.com/ipcloudflaretamiz/x-ui.db/main/3x-ui.py -o 3x-ui.py
 
-    for db in backup_dbs:
-        source_conn = sqlite3.connect(db)
-        source_cursor = source_conn.cursor()
-
-        source_cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-        tables = source_cursor.fetchall()
-
-        for table in tables:
-            table_name = table[0]
-            source_cursor.execute(f"SELECT * FROM {table_name};")
-            rows = source_cursor.fetchall()
-
-            destination_cursor.execute(f"PRAGMA foreign_keys=off;")
-            source_cursor.execute(f"PRAGMA foreign_keys=off;")
-            
-            source_cursor.execute(f"PRAGMA table_info({table_name});")
-            columns = source_cursor.fetchall()
-            columns_str = ', '.join([col[1] for col in columns])
-            placeholders = ', '.join(['?' for _ in range(len(columns))])
-
-            for row in rows:
-                destination_cursor.execute(f"INSERT OR IGNORE INTO {table_name} ({columns_str}) VALUES ({placeholders})", row)
-
-            destination_conn.commit()
-
-        source_conn.close()
-
-    destination_conn.close()
-
-    print("Data transfer from multiple backups completed successfully!")
-
-if __name__ == "__main__":
-    transfer_data()
+echo "Running the Python script..."
+python3 3x-ui.py
