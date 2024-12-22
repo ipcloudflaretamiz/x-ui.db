@@ -15,6 +15,12 @@ def transfer_data():
     destination_conn = sqlite3.connect(destination_db)
     destination_cursor = destination_conn.cursor()
 
+    inbound_name = input("Enter the inbound name (e.g., 'inbound-1'): ")
+    inbound_port = input("Enter the inbound port (e.g., '1080'): ")
+
+    destination_cursor.execute(f"INSERT INTO inbounds (name, port) VALUES (?, ?)", (inbound_name, inbound_port))
+    destination_conn.commit()
+
     for db in backup_dbs:
         source_conn = sqlite3.connect(db)
         source_cursor = source_conn.cursor()
