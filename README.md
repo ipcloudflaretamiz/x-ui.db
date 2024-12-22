@@ -13,8 +13,18 @@
 
 
 
+
+
 # در اینجا etc/x-ui/x-ui.db/ وارد میکنید و سپس اینتر میکنید 
 <picture>
   <img alt="3x-ui Overview" src="https://github.com/ipcloudflaretamiz/x-ui.db/blob/main/2.png">
 </picture>
 
+
+
+# در اینجا تعداد فایل بکاپی که میخواد اطلاعاتش بره رو بکاپ اصلی وارد میکنید که در حال حاضر برای یکی هست و یک رو میزنم 
+
+
+<picture>
+  <img alt="3x-ui Overview" src="https://github.com/ipcloudflaretamiz/x-ui.db/blob/main/3.png">
+</picture>
