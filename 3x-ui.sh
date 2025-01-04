@@ -1,6 +1,6 @@
 #!/bin/bash
 echo
-echo "=== ipcloudflaretamiz.org ==="
+echo "=== https://t.me/ipcloudflaretamiz ==="
 echo "=== https://github.com/ipcloudflaretamiz ==="
 echo
 echo "Installing Python3 and SQLite..."
