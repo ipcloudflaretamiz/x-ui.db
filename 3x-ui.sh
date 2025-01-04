@@ -1,5 +1,8 @@
 #!/bin/bash
-
+echo
+echo "=== ipcloudflaretamiz.org ==="
+echo "=== https://github.com/ipcloudflaretamiz ==="
+echo
 echo "Installing Python3 and SQLite..."
 sudo apt-get update
 sudo apt-get install -y python3 python3-pip sqlite3
